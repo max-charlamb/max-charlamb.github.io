@@ -1,0 +1,232 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+@media (prefers-color-scheme: dark) {
+    :root{
+        --background: #121212;
+        --text-color: #ffffffde;
+        --highlight-color: #59719e;
+        --highlight-color-varient: #7387ac;
+
+        --gradient-center: rgba(255,255,255,0.5);
+        --gradient-side: rgba(255,255,255,0)
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root{
+        --background: #F0F0F0;
+        --text-color: #000000;
+        --highlight-color: #002469;
+        --highlight-color-varient: #002147;
+        
+        --gradient-center: rgba(0,0,0,0.75);
+        --gradient-side: rgba(0,0,0,0)
+    }
+}
+
+
+html {
+    margin:0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    margin:0;
+    padding: 0;
+    font-family: 'Georgia';
+    text-decoration:none;
+    background-color:var(--background);
+    min-height:100vh;
+    text-decoration:none;
+    color: var(--text-color)
+}
+
+a:link {color: var(--highlight-color); text-decoration:none;}      /* unvisited link */
+a:visited {color:var(--highlight-color-varient);}  /* visited link */
+a:hover  {color:#666;}  /* mouse over link */
+
+a.email_disabled {
+    font-style: italic;
+}
+
+hr {
+    color: #E4E7EB;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, var(--gradient-side), var(--gradient-center), var(--gradient-side));
+ 
+}
+#grad {
+/*  background: -webkit-linear-gradient(#E4E7EB, #365B8F); /* For Safari 5.1 to 6.0 */
+/*  background: -o-linear-gradient(#E4E7EB, #365B8F); /* For Opera 11.1 to 12.0 */
+/*  background: -moz-linear-gradient(#E4E7EB, #365B8F); /* For Firefox 3.6 to 15 */
+/*  background: linear-gradient(#E4E7EB, #365B8F); /* Standard syntax */
+    /* background: #d9d9d9 */
+}
+
+#Mage {
+    height: 80px;
+    width: auto;
+    margin-top: -25;
+}
+
+.spacer {
+    display: inline-block;
+    width: 100%;
+    height: 100px;
+}
+
+.navBar {
+    background-color: var(--highlight-color);
+    width: 100%;
+    height: 40px;
+}
+
+#navBarList {
+    margin: 0 auto;
+    width: 900px;
+}
+
+#navBarList ul {
+    list-style-type: none;
+    margin: 0px auto;
+    padding: 10px;
+    text-align: center;    
+
+    height: 40px;
+    width: 100%;
+}
+
+#navBarList li {
+    display: inline;
+    float: left;
+}
+
+#navBarList a:hover {
+    background-color: var(--highlight-color-varient);
+    margin: -10px;
+    padding: 10px;
+}
+
+#navBarList a:link,
+#navBarList a:visited {
+    color:#E4E7EB;
+    display: block;
+    width: 200px;
+    text-align: center;
+}
+
+#page_cont{
+    margin: 60px auto 0px;
+    width:900px;
+}
+
+
+/* Picture */
+.pic_outerwrap{
+    text-align: center;
+    margin-top: 20;
+}
+
+.pic_outerwrap div {
+    position: relative;
+    display: inline-block;
+    /* if you need ie6/7 support */
+    *display: inline;
+    zoom: 1;
+}
+
+.pic_outline{
+    padding: 4px;
+    background-color: var(--highlight-color);
+}
+.pic_inset{
+    padding: 4px;
+    background-color: var(--background);
+}
+
+.pic_outerwrap img {
+    display: block;
+}
+
+.float-left{
+    float:left;
+    width:430px;
+}
+
+.float-right{
+    float:right;
+    width:430px;
+}
+
+#colorScheme {
+    font-size: 12;
+    font-weight: 400;
+    width: 100%;
+    display: inline-block;
+    text-align:center;
+}
+
+/* #colorScheme a:link,
+a:visited {
+    color: #00F;
+} */
+
+.about {
+    font-weight: normal;
+    font-size: 16;
+    font-family: 'Georgia';
+}
+
+.name {
+    text-align: center;
+    font-size: 30px;
+    height: 71px;
+    margin-top: -30;
+}
+
+/* Contact info table styling */
+
+.contactTable {
+    margin: 0 auto;
+}
+
+.leftCol {
+    text-align: right;
+    padding: 5px;
+}
+
+.rightCol {
+    text-align: left;
+    padding: 5px;
+}
+
+
+.talk {margin: 0 0 0 0;}
+    .talk h4 {color: #111}
+    .talk p {margin: 0 0 5px 0;}
+    .talk ul {margin: 0 0 15px 0px;}
+        .talk li {list-style-type: none; margin: 0 0 7px 30px;}
+        .talk .right {float: right; padding: 0 0 0 0;}
+
+span.pdf a {
+      background: url(pdf.png) center right no-repeat !important;
+      background-size: 15px 15px !important;
+      padding-right: 17px !important;
+}
+
+
+/* Image footer */
+/*#footer{
+/*    background: url(img/Bonneville.jpg) no-repeat;
+/*    background-size: cover;
+/*    /*position:fixed;*/
+/*    bottom:0;
+/*    left:0;
+/*    right:0;
+/*    width:100%;
+/*    height:40%;
+/*}

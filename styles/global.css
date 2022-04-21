@@ -1,0 +1,403 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@media(min-width: 200px) {
+    .site {
+        max-width:620px;
+    }
+
+    .site-intro {
+        font-size: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .site-item-header {
+        font-size: 2rem;
+        margin-block-end: 1.25rem;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        font-family: "Lato", sans-serif;
+    }
+    
+    .site-item {
+        margin: 1.25rem 0;
+        font-size: 1.33rem;
+    }
+
+    .site-nav {
+        font-size: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media(min-width: 900px) {
+    .site {
+        max-width: 760px;
+    }
+
+    .site-intro {
+        font-size: 1.75rem;
+        line-height: 1.6;
+    }
+
+    .site-item-header {
+        font-size: 2.5rem;
+        margin-block-end: 1.25rem;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        font-family: "Lato", sans-serif;
+    }
+    
+    .site-item {
+        margin: 1.25rem 0;
+        font-size: 1.5rem;
+    }
+
+    .site-nav {
+        font-size: 1.75rem;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root{
+        --background: #121212;
+        --text-color: #ffffffde;
+        --highlight-color: #59719e;
+        --highlight-color-background: #e1e9f4;
+        --highlight-color-varient: #7387ac;
+
+        --gradient-center: rgba(255,255,255,0.5);
+        --gradient-side: rgba(255,255,255,0)
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root{
+        --background: #FAFAF8;
+        --text-color: #333;
+        --highlight-color: #4072af;
+        --highlight-color-background: #e1e9f4;
+        --highlight-color-varient: #254164;
+        
+        --gradient-center: rgba(0,0,0,0.75);
+        --gradient-side: rgba(0,0,0,0)
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin:0;
+    padding: 0;
+    /* height: 100%; */
+}
+
+body {
+    margin:0;
+    padding: 0;
+    font-size: 1rem;
+    font-family: 'Lora';
+    text-decoration:none;
+    background-color:var(--background);
+    /* min-height:100vh; */
+    text-decoration:none;
+    color: var(--text-color);
+    line-height: 1.5
+}
+
+.site {
+    padding: 0 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.site-logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    padding-left: 0.5rem;
+}
+
+.site-header {
+    margin: 3rem 0 2rem;
+    font-family: "Lato", sans-serif;
+}
+
+.site-header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.site-content::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.site-footer::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.site-title {
+    float:left;
+    width: 20%;
+    margin-top: 0;
+}
+
+.site-nav {
+    float:right;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+}
+
+.site-nav-link {
+    padding: 0.25rem 0.5rem;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out;
+    transition-property: color, background-color;
+    text-decoration: none;
+    color: var(--highlight-color)
+}
+
+.site-nav-link:hover {
+    background-color: var(--highlight-color-background);
+    color: var(--highlight-color-varient);
+}
+
+.current {
+    font-weight: bold;
+}
+
+.site-footer {
+    display: inline-block;
+    width: 100%;
+    font-family: "Lato", sans-serif;
+}
+
+.site-footer-spacer {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    
+}
+
+.site-copy {
+    padding-top: 0.25rem;
+    float: left;
+    width: 50%;
+}
+
+.site-author {
+    font-weight: bold;
+    margin-left: 0.25rem;
+}
+
+.site-center {
+
+}
+
+
+
+.site-links {
+    float: right;
+    width: 50%;
+    text-align: right;
+    text-decoration: none;
+}
+
+.site-logo-link {
+    width: 2rem;
+    height: 2rem;
+}
+
+.site-links a {
+    text-decoration: none;
+    margin-left: 0.5rem;
+}
+
+.site-links a i {
+    -webkit-transition: color 0.1s ease-out;
+    transition: color 0.1s ease-out;
+}
+
+.site-icon-hover {
+    color: var(--highlight-color);
+}
+
+.site-icon-hover:hover {
+    color: var(--highlight-color-varient);
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    martin-top: 0;
+    margin-bottom: 0.5rem;
+    font-family: "Lato", sans-serif;
+    line-height: 1.1;
+    color: inherit;
+}
+
+
+
+hr {
+    color: #E4E7EB;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, var(--gradient-side), var(--gradient-center), var(--gradient-side));
+ 
+}
+
+.spacer {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+}
+
+.navBar {
+    background-color: var(--highlight-color);
+    width: 100%;
+    height: 40px;
+}
+
+
+#page_cont{
+    margin: 60px auto 0px;
+    width:900px;
+}
+
+
+/* Picture */
+.pic_outerwrap{
+    text-align: center;
+    margin-top: 20;
+}
+
+.pic_outerwrap div {
+    position: relative;
+    display: inline-block;
+    /* if you need ie6/7 support */
+    *display: inline;
+    zoom: 1;
+}
+
+.pic_outline{
+    padding: 4px;
+    background-color: var(--highlight-color);
+}
+.pic_inset{
+    padding: 4px;
+    background-color: var(--background);
+}
+
+.pic_outerwrap img {
+    display: block;
+}
+
+
+#colorScheme {
+    font-size: 12;
+    font-weight: 400;
+    width: 100%;
+    display: inline-block;
+    text-align:center;
+}
+
+/* #colorScheme a:link,
+a:visited {
+    color: #00F;
+} */
+
+.name {
+    text-align: center;
+    font-size: 30px;
+    height: 71px;
+    margin-top: -30;
+}
+
+/* Contact info table styling */
+
+.contactTable {
+    margin: 0 auto;
+}
+
+.leftCol {
+    text-align: right;
+    padding: 5px;
+}
+
+.rightCol {
+    text-align: left;
+    padding: 5px;
+}
+
+
+.talk {margin: 0 0 0 0;}
+    .talk h4 {color: #111}
+    .talk p {margin: 0 0 5px 0;}
+    .talk ul {margin: 0 0 15px 0px;}
+        .talk li {list-style-type: none; margin: 0 0 7px 30px;}
+        .talk .right {float: right; padding: 0 0 0 0;}
+
+span.pdf a {
+      background: url(pdf.png) center right no-repeat !important;
+      background-size: 15px 15px !important;
+      padding-right: 17px !important;
+}
+
+
+/* Sort Sketch */
+
+#canvas-holder {
+    min-width: 500px;
+    min-height: 400px;
+    margin: 2rem 0;
+}
+
+#sketch-output {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+#sketch-output div {
+    font-size: 1.25rem;
+    font-family: "Lato", sans-serif;
+}
+
+#sketch-controls {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+#sketch-controls div {
+    border: none;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out;
+    transition-property: color, background-color;
+    text-decoration: none;
+    color: var(--highlight-color);
+    font-family: "Lato", sans-serif;
+}
+
+#sketch-controls div:hover {
+    background-color: var(--highlight-color-background);
+    color: var(--highlight-color-varient);
+}

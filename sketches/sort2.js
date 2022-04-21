@@ -21,34 +21,65 @@ var heapButton;
 var quickButton;
 var selectionButton;
 
+var canvasHolder;
+var sketchControl;
+var sketchOutput;
+
+var swapOutput;
+var compareOutput;
+
+var backgroundColor;
+var foregroundColor;
+
 function setup(){
-    canvas = createCanvas(windowWidth,windowHeight);
+
+    backgroundColor = getComputedStyle(document.documentElement).getPropertyValue("--background");
+    foregroundColor = getComputedStyle(document.documentElement).getPropertyValue("--text-color");
+
+    canvasHolder = document.getElementById("canvas-holder");
+    sketchControl = document.getElementById("sketch-controls");
+    sketchOutput = document.getElementById("sketch-output")
+    canvas = createCanvas(canvasHolder.clientWidth, canvasHolder.clientHeight);
     canvas.parent('canvas-holder');
-    canvas.position(0,0);
+    canvas.position(canvasHolder.left, canvasHolder.top);
 
-    heapButton = createButton('Heap');
-    insertionButton = createButton('Insertion');
-    quickButton = createButton('Quick');
-    selectionButton = createButton('Selection');
+    heapButton = document.createElement("div");
+    heapButton.appendChild(document.createTextNode("Heap"));
 
-    heapButton.position(0,0);
-    insertionButton.position(64,0);
-    quickButton.position(128,0);
-    selectionButton.position(192,0);
+    insertionButton = document.createElement("div");
+    insertionButton.appendChild(document.createTextNode("Insertion"));
 
-    heapButton.size(64);
-    insertionButton.size(64);
-    quickButton.size(64);
-    selectionButton.size(64);
+    quickButton = document.createElement("div");
+    quickButton.appendChild(document.createTextNode("Quick"));
 
-    heapButton.mousePressed(startHeap);
-    insertionButton.mousePressed(startInsertion);
-    quickButton.mousePressed(startQuick);
-    selectionButton.mousePressed(startSelection);
+    selectionButton = document.createElement("div");
+    selectionButton.appendChild(document.createTextNode("Selection"));
 
+    sketchControl.appendChild(heapButton);
+    sketchControl.appendChild(insertionButton);
+    sketchControl.appendChild(quickButton);
+    sketchControl.appendChild(selectionButton);
+
+    heapButton.onclick = startHeap;
+    insertionButton.onclick = startInsertion;
+    quickButton.onclick = startQuick;
+    selectionButton.onclick = startSelection;
+
+    swapOutput = document.createElement("div");
+    sketchOutput.appendChild(swapOutput);
+    
+    compareOutput = document.createElement("div");
+    sketchOutput.appendChild(compareOutput);
+
+    updateOutputs(0, 0);
 
     frameRate(FRAME_RATE);
     mode = STARTSCREEN;
+}
+
+function updateOutputs(swaps, compares) {
+    swapOutput.textContent = "Swaps: " + swaps;
+    compareOutput.textContent = "Compares: " + compares;
 }
 
 
@@ -60,19 +91,21 @@ function draw(){
         case SORT:
         if(array.hasNext()){
             showArray(array.next(TIME_STEP));
-            textSize(32);
-            fill(255);
-            textAlign(LEFT);
-            text(array.swapCounter + ' swaps',100,200);
-            text(array.compareCounter + ' compares',100,300);
+            updateOutputs(array.swapCounter, array.compareCounter);
+            // textSize(32);
+            // fill(255);
+            // textAlign(LEFT);
+            // text(array.swapCounter + ' swaps',100,200);
+            // text(array.compareCounter + ' compares',100,300);
         } else {
             array.resetColor();
             showArray(array.visual);
-            textSize(32);
-            fill(255);
-            textAlign(LEFT);
-            text(array.swapCounter + ' swaps',100,200);
-            text(array.compareCounter + ' compares',100,300);
+            updateOutputs(array.swapCounter, array.compareCounter);
+            // textSize(32);
+            // fill(255);
+            // textAlign(LEFT);
+            // text(array.swapCounter + ' swaps',100,200);
+            // text(array.compareCounter + ' compares',100,300);
             mode = SORTDONE;
         }
         break;
@@ -82,10 +115,10 @@ function draw(){
 }
 
 function startScreen(){
-    background(0);
+    background(backgroundColor);
     textSize(32);
     textAlign(CENTER);
-    fill(255);
+    fill(foregroundColor);
     text('SELECT SORT TO BEGIN', width/2, height/2);
 }
 
@@ -114,17 +147,17 @@ function startSelection(){
 }
 
 function windowResized(){
-    resizeCanvas(windowWidth, windowHeight);
+    resizeCanvas(canvasHolder.clientWidth, canvasHolder.clientHeight);
     if(mode = SORTDONE){mode = SORT;}
 }
 
 //Takes in an array of arrays with 0: value, 1: type (to determine color)
 function showArray(arr){
-    let columnWidth = width/arr.length;
+    let columnWidth = ceil(width/arr.length);
     let spacingWidth = width/arr.length;
     let heightMultiplier = height/arr.length;
 
-    background(0);
+    background(backgroundColor);
 
     for(let i = 0; i < arr.length; i++){
         switch(arr[i][1]){
@@ -135,7 +168,7 @@ function showArray(arr){
             fill(COMPARE_COLOR[0],COMPARE_COLOR[1],COMPARE_COLOR[2]);
             break;
             default:
-            fill(255);
+            fill(foregroundColor);
         }
         noStroke();
         rect(i * spacingWidth, height, columnWidth,  (-arr[i][0] - 1)* heightMultiplier);
