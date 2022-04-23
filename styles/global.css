@@ -125,8 +125,6 @@ body {
 .site-logo {
     width: 128px;
     height: 128px; 
-    padding-left: 0.5rem;
-    shape-rendering: auto;
 }
 
 .site-header {
