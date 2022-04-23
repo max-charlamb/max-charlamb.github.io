@@ -12,7 +12,7 @@
     }
 
     .site-item-header {
-        font-size: 2rem;
+        font-size: 1.75rem;
         margin-block-end: 1.25rem;
         margin-inline-start: 0px;
         margin-inline-end: 0px;
@@ -45,7 +45,7 @@
     }
 
     .site-item-header {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-block-end: 1.25rem;
         margin-inline-start: 0px;
         margin-inline-end: 0px;
@@ -63,7 +63,7 @@
     }
 
     h1 {
-        font-size: 2.4rem;
+        font-size: 2.5rem;
     }
 }
 
@@ -123,9 +123,10 @@ body {
 }
 
 .site-logo {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 128px;
+    height: 128px; 
     padding-left: 0.5rem;
+    shape-rendering: auto;
 }
 
 .site-header {
@@ -159,10 +160,10 @@ body {
 
 .site-nav {
     float:right;
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: space-around;
-    margin-top: 0.5rem;
+    margin-top: 2.625rem;
 }
 
 .site-nav-link {
@@ -187,6 +188,7 @@ body {
     display: inline-block;
     width: 100%;
     font-family: "Lato", sans-serif;
+    padding-bottom: 1.5rem;
 }
 
 .site-footer-spacer {
@@ -209,8 +211,6 @@ body {
 .site-center {
 
 }
-
-
 
 .site-links {
     float: right;
