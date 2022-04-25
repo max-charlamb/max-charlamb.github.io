@@ -1,80 +1,59 @@
 <html>
 
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
 <head>
-        <meta name="keywords" content ="Henry Samuelson, Samuelson, hes227, Cornell University, hsamuelson">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Henry Samuelson</title>
+    <meta name="keywords" content="Max Charlamb, Charlamb, mbc222, Cornell University, mcharlamb">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Max Charlamb</title>
     <link href="styles/global.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,500" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300' rel='stylesheet' type='text/css'>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <div id="grad">
-        
-        <div class="navBar">
-            <div id="navBarList">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="fun.html">Fun</a></li>
-                </ul>
+    <script src="https://kit.fontawesome.com/2482c5e987.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="site">
+        <header class="site-header">
+            <div class="site-title">
+                <a href="index.html">
+                    <img class="site-logo" src="img/maxcharlamb.png">
+                </a>
             </div>
+            <nav class="site-nav">
+                <a class="site-nav-link" href="work.html">Work</a>
+                <a class="site-nav-link current" href="projects.html">Projects</a>
+                <a class="site-nav-link" href="education.html">Education</a>
+                <a class="site-nav-link" href="aboutme.html">About Me</a>
+            </nav>
+        </header>
+        <div class="site-content">
+            <header class="page-header"><h1>Some things I've done</h1></header>
+            <div class="site-item">
+                <div class="site-item-header">
+                    Array Sort Visualization
+                </div>
+                Visualizes different sorting techniques and compares efficienies. <a class="pretty-link" href="projects/sort.html">Click here to try it out!</a>
+            </div>
+            
         </div>
-        <div id="page_cont">
-            <div class="aboutHeader"><h1>Projects</h1></div>
-
-           <div class="aboutHeader"><h2>xi-compiler</h2></div>
-            <div class="about">
-                Research assistant to Thorsten Joachims on the <a href="https://www.cs.cornell.edu/people/tj/banditnet/index.html">Banditnet</a> project. Using logged contextual
-                bandit feedback for training deep neural networks. I worked on testing edge cases in banditnet, to try to understand how banditnet preforms when it has varying
-                amounts of incorrect data, and varying softmax lambda values. Here is our paper on the process: <a href="papers/BanditNet_with_Partial_Support.pdf">Banditnet with
-                Partial Support.</a>
+        <footer class="site-footer">
+            <hr class="site-footer-spacer">
+            <div class="site-copy">
+                © 2022
+                <span class="site-author">Max Charlamb</span>
             </div>
-            <hr>
-            <div class="aboutHeader"><h2>Distributed Key-Value Store Replication</h2></div>
-            <div class="about">
-                Worked with PhD student Matthew Burke under Professor Lorenzo Alvisi to add replication to a novel, distributed key-value store.
-                Based replication on TAPIR protocol 
+            <div class="site-links">
+                <a taget="_blank" rel="external" href="https://github.com/max-charlamb">
+                    <i class="fa-brands fa-2x fa-github site-icon-hover"></i>
+                </a>
+                <a taget="_blank" rel="external" href="https://www.linkedin.com/in/maxcharlamb/">
+                    <i class="fa-brands fa-2x fa-linkedin site-icon-hover"></i>
+                </a>
+                <a href="mailto:mbc222@cornell.edu">
+                    <i class="fa-solid fa-2x fa-envelope site-icon-hover"></i>
+                </a>
             </div>
-            <hr>
-            <div class="aboutHeader"><h2>Prime Factorization Methods & b division attack</h2></div>
-            <div class="about">
-            Through my number theory research im my free time I have been able to derive a few valuable things regarding prime factorization. The first of which is I have derived an equation
-             that can estimate the distance between two prime factors, q & p, which is extremely helpful for determining a tight range on possible values for each, this results up to a 98%
-            reduction in steps needed to find prime factors. <br>
-            <br>
-            The b division attack is very interesting. There are strong rules in place while generating RSA keys that insure, q – p is a very large number while maximizing p, given q > p. These
-            rules help maximize the number of steps it would take to crack, but they don’t insure against, what I call a “b division” attack. It is the case that if the distance from the square
-            root of q*p can be written in terms of b/ some integer divisor –b is the distance between q and p / 2—then you can factor the number q*p in O(n) time. Cases where this attack can
-            be preformed are rare. 
-            <br> <br>
-            If this sounds interesting here is my paper, (still a work in progress): <a href="papers/Factor_Range_Estimation.pdf">Prime Facotization Methods</a>
-            </div>
-            <hr>
-            <div class="aboutHeader"><h2>nnCore</h2></div>
-            <div class="about">
-            I build nnCore as part of an independent study I did on machine learning. It was built with the intent of being a simple yet comprehensive neural network library that is well
-            commented. This library was built to be light weight in comparison to most full-featured neuralnet libraries. This was a very fun project as a got to build a neural net library
-            from the ground up, learning a lot as I went, and I experimented with different optimizations of the various algorithms within the library. I then went and published nnCore as an
-            R-library, for anyone to use! <br>
-            <br>
-            <a href="papers/TrainingPaper.pdf">nnCore training results. </a> <br> <br>
-            <a href="https://github.com/hsamuelson/nnCore">nnCore Installation and source code.</a>  
-                
-            </div>
+        </footer>
+</body>
 
-    <hr> 
-    <div id="colorScheme">© Henry E Samuelson 2021 
-    </div> 
-
-    </div>
-
-    <div id="footer">
-    </div>
-  </body>
-
-<!-- Mirrored from mbernhard.com/projects.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2019 19:21:29 GMT -->
 </html>

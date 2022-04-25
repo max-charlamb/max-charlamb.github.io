@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 
-@media(min-width: 200px) {
+@media(min-width: 0px) {
     .site {
         max-width:620px;
     }
@@ -32,6 +32,18 @@
     h1 {
         font-size: 2rem;
     }
+
+    .site-title {
+        text-align: center;
+    }
+    
+    .site-nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    
 }
 
 @media(min-width: 900px) {
@@ -65,6 +77,21 @@
     h1 {
         font-size: 2.5rem;
     }
+
+    .site-title {
+        float:left;
+        width: 20%;
+        margin-top: 0;
+    }
+    
+    .site-nav {
+        float:right;
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2.625rem;
+    }
+    
 }
 
 @media (prefers-color-scheme: dark) {
@@ -125,6 +152,12 @@ body {
 .site-logo {
     width: 128px;
     height: 128px; 
+    transform: rotate(-6deg);
+    transition: transform 0.1s ease-out;
+}
+
+.site-logo:hover {
+    transform: rotate(3deg);
 }
 
 .site-header {
@@ -150,19 +183,6 @@ body {
     clear: both;
 }
 
-.site-title {
-    float:left;
-    width: 20%;
-    margin-top: 0;
-}
-
-.site-nav {
-    float:right;
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 2.625rem;
-}
 
 .site-nav-link {
     padding: 0.25rem 0.5rem;
@@ -238,6 +258,11 @@ body {
 
 .site-icon-hover:hover {
     color: var(--highlight-color-varient);
+}
+
+.pretty-link {
+    color: var(--highlight-color);
+    text-decoration: none;
 }
 
 
