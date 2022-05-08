@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <link href="../styles/global.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/2482c5e987.js" crossorigin="anonymous"></script>
+    <title>Sort</title>
+    <link rel="icon" type="image/x-icon" href="../img/maxcharlamb.png">
+</head>
+
+
+
+<body>
+    <div class="site">
+        <header class="site-header">
+            <div class="site-title">
+                <a href="index.html">
+                    <img class="site-logo" src="../img/maxcharlamb.png">
+                </a>
+            </div>
+            <nav class="site-nav">
+                <a class="site-nav-link" href="../work.html">Work</a>
+                <a class="site-nav-link" href="../projects.html">Projects</a>
+                <a class="site-nav-link" href="../education.html">Education</a>
+                <a class="site-nav-link" href="../aboutme.html">About Me</a>
+            </nav>
+        </header>
+        <div class="site-content">
+            <header class="page-header"><h1>Xi-Compiler</h1></header>
+            <div class="site-item">
+                <p>This Xi compiler implementation was created by myself, Samuel Hinson, Militsa Sotirova, and Christopher Hansen during the spring 2020 class of CS 4120.
+                    It is written in Java using CUP and Jflex as the parser generator and lexer respectively. The targeted assembly langauge is x86. </p>
+                <p>It incoroprates Chaitin's algorithm for register allocation, common subexpression elimination, dead code elimination, copy propogation, and constant folding. </p>
+                <p>While the compiler supports multible files and interfaces, this web interface currently does not. Check out the  <a class="pretty-link" target="_blank" href="https://www.cs.cornell.edu/courses/cs4120/2021sp/project/language.pdf?1616260969">Xi-language spec</a> for reference!</p>
+            </div>
+            
+            <hr>
+            <div class="spacer20"></div>
+            <div class="site-item-header">
+                Input - Xi Code
+            </div>
+            <textarea class="compiler-text" id="compiler-input" rows="15" cols="50">
+main(args:int[][]):int
+{ 
+    a:int = 10;
+    b:int = 3 + 3; 
+    return b 
+}
+            </textarea>
+            <div class="spacer20"></div>
+
+            <div class="site-item-header">
+                Output - x86 Assembly
+            </div>
+            <textarea class="compiler-text" id="compiler-output" rows="15" cols="50" readonly>
+.file "from string"
+.intel_syntax noprefix
+.text
+.globl _Imain_iaai
+_Imain_iaai:
+    push rbp
+    mov rbp, rsp
+    push rbx
+    push r12
+    push r13
+    push r14
+    push r15
+    mov rax, 6
+    jmp ._Imain_iaai_epilogue
+._Imain_iaai_epilogue:
+    pop r15
+    pop r14
+    pop r13
+    push r12
+    push rbx
+    mov rsp, rbp
+    pop rbp
+    ret
+            </textarea>
+            <div id="sketch-controls"><div id="compiler-submit">Compile!</div></div>
+            
+        <footer class="site-footer">
+            <hr class="site-footer-spacer">
+            <div class="site-copy">
+                © 2022
+                <span class="site-author">Max Charlamb</span>
+            </div>
+            <div class="site-links">
+                <a taget="_blank" rel="external" href="https://github.com/max-charlamb">
+                    <i class="fa-brands fa-2x fa-github site-icon-hover"></i>
+                </a>
+                <a taget="_blank" rel="external" href="https://www.linkedin.com/in/maxcharlamb/">
+                    <i class="fa-brands fa-2x fa-linkedin site-icon-hover"></i>
+                </a>
+                <a target="_blank" href="mailto:mbc222@cornell.edu">
+                    <i class="fa-solid fa-2x fa-envelope site-icon-hover"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+
+<script src="compiler.js"></script>
+
+</html>

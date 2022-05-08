@@ -290,6 +290,12 @@ hr {
     height: 50px;
 }
 
+.spacer20 {
+    display: inline-block;
+    width: 100%;
+    height: 20px;
+}
+
 .navBar {
     background-color: var(--highlight-color);
     width: 100%;
@@ -381,6 +387,20 @@ span.pdf a {
       padding-right: 17px !important;
 }
 
+
+/* Compiler Sketch */
+
+.compiler-text {
+    width: 100%;
+    height: 300px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
 
 /* Sort Sketch */
 
