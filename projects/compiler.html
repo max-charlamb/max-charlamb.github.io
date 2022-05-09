@@ -42,11 +42,15 @@
                 Input - Xi Code
             </div>
             <textarea class="compiler-text" id="compiler-input" rows="15" cols="50">
-main(args:int[][]):int
-{ 
-    a:int = 10;
-    b:int = 3 + 3; 
-    return b 
+sqrt(s:int) : int {
+    i:int = 1 c:int = 0
+    while(true) {
+        if(i * i > s) {
+            return c
+        }
+        i = i + 1 c = c + 1
+    }
+    return -1
 }
             </textarea>
             <div class="spacer20"></div>
@@ -58,8 +62,8 @@ main(args:int[][]):int
 .file "from string"
 .intel_syntax noprefix
 .text
-.globl _Imain_iaai
-_Imain_iaai:
+.globl _Isqrt_ii
+_Isqrt_ii:
     push rbp
     mov rbp, rsp
     push rbx
@@ -67,9 +71,27 @@ _Imain_iaai:
     push r13
     push r14
     push r15
-    mov rax, 6
-    jmp ._Imain_iaai_epilogue
-._Imain_iaai_epilogue:
+    mov rcx, 1
+    mov rax, 0
+.LABEL_16:
+    jmp .LABEL_17
+    jmp .LABEL_18
+.LABEL_17:
+    mov rdx, rcx
+    imul rdx, rcx
+    cmp rdx, rdi
+    jg .LABEL_13
+    jmp .LABEL_14
+.LABEL_13:
+    jmp ._Isqrt_ii_epilogue
+.LABEL_14:
+    inc rcx
+    inc rax
+    jmp .LABEL_16
+.LABEL_18:
+    mov rax, -1
+    jmp ._Isqrt_ii_epilogue
+._Isqrt_ii_epilogue:
     pop r15
     pop r14
     pop r13
