@@ -3,12 +3,17 @@ document.getElementById("compiler-submit").addEventListener("click", compileCode
 
 function compileCode(){
     input = document.getElementById("compiler-input").value;
+    outputTextarea = document.getElementById("compiler-output");
+
     let data = {files:[
         { 
             name: "test.xi",
             contents: input
         }
     ], interfaces: []};
+
+    outputTextarea.value = "";
+    outputTextarea.disabled = true;
 
     fetch("https://azure-xi-compiler-20220504031321030.azurewebsites.net/api/xi-compile", {
       method: "POST",
@@ -17,7 +22,7 @@ function compileCode(){
     })
     .then(res => res.text()) 
     .then(text =>  {
-        outputTextarea = document.getElementById("compiler-output");
+        outputTextarea.disabled = false;
         outputTextarea.value = text;
     });
 }

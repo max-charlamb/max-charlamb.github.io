@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <link href="../styles/global.css" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/2482c5e987.js" crossorigin="anonymous"></script>
-    <title>Sort</title>
+    <title>Xi-Compiler</title>
     <link rel="icon" type="image/x-icon" href="../img/maxcharlamb.png">
 </head>
 
@@ -32,7 +32,11 @@
             <div class="site-item">
                 <p>This Xi compiler implementation was created by myself, Samuel Hinson, Militsa Sotirova, and Christopher Hansen during the spring 2020 class of CS 4120.
                     It is written in Java using CUP and Jflex as the parser generator and lexer respectively. The targeted assembly langauge is x86. </p>
-                <p>It incoroprates Chaitin's algorithm for register allocation, common subexpression elimination, dead code elimination, copy propogation, and constant folding. </p>
+                <p>It incoroprates Chaitin's algorithm for register allocation, common subexpression elimination, dead code elimination, copy propogation, and constant folding. I will briefly
+                    explain a few of these optimizations below.
+                </p>
+                
+
                 <p>While the compiler supports multiple files and interfaces, this web interface currently does not. Check out the <a class="pretty-link" target="_blank" href="https://www.cs.cornell.edu/courses/cs4120/2021sp/project/language.pdf?1616260969">Xi-language spec</a> for reference!</p>
             </div>
             
@@ -102,7 +106,44 @@ _Isqrt_ii:
     ret
             </textarea>
             <div id="sketch-controls"><div id="compiler-submit">Compile!</div></div>
-            
+
+            <hr>
+            <div class="site-item">
+            <p>Common Subexpression elimination finds identical subexpressions and replaces them with a single computation. For example: </p>
+                    
+
+<pre><code>a = b * c + g;
+d = b * c * e;</code></pre>
+
+                    
+                    
+                    </pre>
+                    <p>Could transform into:</p>
+<pre><code>t = b * c;
+a = t + g;
+d = t * e;</code></pre> 
+                <p>
+                    Reducing the number of expensive multiplication operations from 3 to 2.           
+                </p>
+
+                <p>
+                    To understand dead code elimination it is important to first understand "dead code". This is any code which does not affect the program result. 
+                    Simply, dead code elimination finds this code and removes it.
+                
+<pre><code>main(args:int[][]):int {
+    if(true){
+        return 2;
+    }
+    return 0;
+}</code></pre>
+                <p>Clearly the function will alwasy return 2, and the statement <code>return 0;</code> will never be reached. Dead code elimination can transform this snippet into the following.</p>
+
+<pre><code>main(args:int[][]):int {
+    if(true){
+        return 2;
+    }
+}</code></pre>
+</div>
         <footer class="site-footer">
             <hr class="site-footer-spacer">
             <div class="site-copy">

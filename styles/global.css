@@ -226,9 +226,12 @@ body {
     margin-left: 0.25rem;
 }
 
-.site-center {
-
-}
+pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+  }
 
 .site-links {
     float: right;
