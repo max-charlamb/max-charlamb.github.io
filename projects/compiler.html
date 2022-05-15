@@ -109,7 +109,7 @@ _Isqrt_ii:
 
             <hr>
             <div class="site-item">
-            <p>Common Subexpression elimination finds identical subexpressions and replaces them with a single computation. For example: </p>
+            <p><b>Common Subexpression elimination</b> finds identical subexpressions and replaces them with a single computation. For example: </p>
                     
 
 <pre><code>a = b * c + g;
@@ -127,7 +127,7 @@ d = t * e;</code></pre>
                 </p>
 
                 <p>
-                    To understand dead code elimination it is important to first understand "dead code". This is any code which does not affect the program result. 
+                    To understand <b>dead code elimination</b> it is important to first understand "dead code". This is any code which does not affect the program result. 
                     Simply, dead code elimination finds this code and removes it.
                 
 <pre><code>main(args:int[][]):int {
@@ -143,7 +143,19 @@ d = t * e;</code></pre>
         return 2;
     }
 }</code></pre>
-</div>
+
+                <p><b>Copy propogation</b> reduces assignments which are redundent.</p>
+
+<pre><code>y = x
+z = 3 + y</code></pre>
+                <p>Could transform into:</p>
+<pre><code>z = 3 + y</code></pre>
+                <p><b>Constant folding</b> precomuptes any operations on constants. This allows operations to be done once, at compile time rather than at every time the code is run.</p>
+<pre><code>x = 30 * 20 + 5 * y</code></pre>
+                <p>Could transform into:</p>
+<pre><code>x = 600 + 5 * y</code></pre>
+                    </div>
+                    </div>
         <footer class="site-footer">
             <hr class="site-footer-spacer">
             <div class="site-copy">
