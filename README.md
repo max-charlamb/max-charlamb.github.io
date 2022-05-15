@@ -1,3 +1,3 @@
 # website
 
-Simple p5.js sketch to visualize a spanning tree across a 2-dimensional graph
+A simple personal website built during ENGRC 3025
